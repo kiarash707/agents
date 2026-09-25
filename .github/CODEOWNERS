@@ -1,0 +1,38 @@
+# CODEOWNERS — security-sensitive paths require explicit review.
+#
+# A PR that touches any of these files cannot be merged without sign-off
+# from the listed owners. This is the human-review layer of the supply-chain
+# defence (the CI guard is the automated layer).
+#
+# Format: <path-glob> <reviewer> ...
+# See https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# CI workflow files — a malicious workflow change can compromise everything
+# that runs in CI. Always require explicit review.
+/.github/workflows/                @kiarash707
+/.github/CODEOWNERS                @kiarash707
+/.github/supply-chain/             @kiarash707
+/.github/dependabot.yml            @kiarash707
+
+# Lockfiles — silent dep substitution via lockfile editing is a known supply-
+# chain attack vector. Maintainer review required.
+/package-lock.json                 @kiarash707
+/v3/pnpm-lock.yaml                 @kiarash707
+**/package-lock.json               @kiarash707
+**/pnpm-lock.yaml                  @kiarash707
+
+# Plugin manifests — listing in the marketplace, publishing identity.
+**/.claude-plugin/plugin.json      @kiarash707
+
+# Witness manifests + provenance — the ADR-103 root of trust.
+/verification/                     @kiarash707
+/v3/docs/adr/ADR-103-witness-temporal-history.md @kiarash707
+
+# Supply chain scripts themselves — the auditor's audit.
+/scripts/audit-supply-chain.mjs    @kiarash707
+/scripts/audit-package-dep-overlap.mjs @kiarash707
+/scripts/audit-plugin-packages.mjs @kiarash707
+/scripts/audit-hook-commands.mjs   @kiarash707
+
+# Default fallback — every other PR gets standard review.
+*                                  @kiarash707
