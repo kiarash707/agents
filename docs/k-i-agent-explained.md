@@ -103,7 +103,7 @@ MetaHarness focuses on the setup around the agent: readiness, configuration risk
 If your coding assistant supports the Skills installer, run this in a terminal:
 
 ```bash
-npx skills add kiarash707/agents --skill ruflo
+npx skills add kiarash707/agents --skill k-i-agent
 ```
 
 Choose the supported agent and installation scope when prompted. A project installation is easier to reason about than immediately changing every project on your machine.

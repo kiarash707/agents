@@ -89,7 +89,7 @@ Claude Code و Codex خودش‌ها قابلیت‌های بومی قوی دا�
 اگر دستیار شما از سازوکار Skills پشتیبانی می‌کند:
 
 ```bash
-npx skills add kiarash707/agents --skill ruflo
+npx skills add kiarash707/agents --skill k-i-agent
 ```
 
 محدوده‌ی نصب را **پروژه** انتخاب کنید (قابل‌تحلیل‌تر از تغییر همه‌ی پروژه‌های ماشین است).
